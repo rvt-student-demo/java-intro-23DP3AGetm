@@ -4,18 +4,16 @@ public class App
 {
     public static void main(String[]args)
     {
-           Scanner scanner = new Scanner(System.in);
-           while(true){
-                System.out.println("Shall we carry on?");
-                String input = scanner.nextLine();
-                if (input.equals("no")){
-                    break;
-                }
-               
-            }
-            
-        }
-}
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Write number:");
+    int number = scanner.nextInt();
+    for(int i = 0; i <=number; i++){
+        System.out.println(i);
+    }
+    } 
+    }
+
+
  
 
 
