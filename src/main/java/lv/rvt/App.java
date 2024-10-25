@@ -7,24 +7,21 @@ public class App
     public static void main(String[] args) 
     {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<Integer> numbers = new ArrayList<>();
-        System.out.println("Enter number: ");
-        while(true){
-            int number = scanner.nextInt();
-            if(number == -1){
+        String input;
+        int greatest = Integer.MIN_VALUE;
+        System.out.println("Ievadit skaitļi: ");
+        input = scanner.nextLine();
+        String[] numbers = input.split(" ");
+        for (String num:numbers){
+            int number = Integer.parseInt(num);
+            if (number == -1) {
                 break;
             }
-            numbers.add(number);
-        }
-        System.out.println("From where? ");
-        int index = scanner.nextInt();
-        System.out.println("To where? ");
-        int index1 = scanner.nextInt();
-        if (index >= 0 && index1 < numbers.size() && index <= index1){
-            for(int i = index;i <= index1; i++ ){
-                System.out.println(numbers.get(i));
+            if (number>greatest){
+                greatest = number;
             }
         }
+        System.out.println("The greatest number: " + greatest);
     }
 }
 
