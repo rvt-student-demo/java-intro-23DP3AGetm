@@ -7,21 +7,22 @@ public class App
     public static void main(String[] args) 
     {
         Scanner scanner = new Scanner(System.in);
-        String input;
-        int greatest = Integer.MIN_VALUE;
-        System.out.println("Ievadit skaitļi: ");
-        input = scanner.nextLine();
-        String[] numbers = input.split(" ");
-        for (String num:numbers){
-            int number = Integer.parseInt(num);
-            if (number == -1) {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        System.out.println("Ievadi skaitļi: ");
+        while(true){
+            int number = scanner.nextInt();
+            if(number == -1){
                 break;
             }
-            if (number>greatest){
-                greatest = number;
+            numbers.add(number);
+        }
+        System.out.println("Search for? ");
+        int search = Integer.valueOf(scanner.nextInt());
+        for (int i = 0; i < numbers.size(); i++){
+            if(numbers.get(i)==search){
+                System.out.println(search + " Is at index " + i);
             }
         }
-        System.out.println("The greatest number: " + greatest);
     }
 }
 
