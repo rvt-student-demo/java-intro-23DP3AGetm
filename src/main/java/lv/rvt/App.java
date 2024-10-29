@@ -7,22 +7,22 @@ public class App
     public static void main(String[] args) 
     {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<Integer> numbers = new ArrayList<>();
-        System.out.println("Ievadi skaitļi: ");
-        while(true){
-            int number = scanner.nextInt();
-            if(number == -1){
-                break;
-            }
-            numbers.add(number);
-        }
-        System.out.println("Search for? ");
-        int search = Integer.valueOf(scanner.nextInt());
-        for (int i = 0; i < numbers.size(); i++){
-            if(numbers.get(i)==search){
-                System.out.println(search + " Is at index " + i);
-            }
+        System.out.println("Tank capacity: ");
+        int capacity = scanner.nextInt();
+        System.out.println("Gage reading: ");
+        int Gage = scanner.nextInt();
+        System.out.println("Miles per gallon: ");
+        int Miles = scanner.nextInt();
+        int distance = Gage * Miles;
+        if (distance>=200){
+            System.out.println("Get Gas!");
+        }else{
+            System.out.println("Safe to Proceed!");
         }
     }
+
+        
 }
+
+
 
