@@ -4,23 +4,30 @@ import java.util.ArrayList;
 import java.util.Random;
 public class App 
 {
-    public static void main(String[] args) 
-    {
-        Account artosAccount = new Account("Arto's account", 100.00);
-        Account artosSwissAccount = new Account("Arto's account in Switzerland", 1000000.00);
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Statistics allNumbers = new Statistics();
+        Statistics evenNumbers = new Statistics();
+        Statistics oddNumbers = new Statistics();
 
-        System.out.println("Initial state");
-        System.out.println(artosAccount);
-        System.out.println(artosSwissAccount);
+        System.out.println("Enter numbers: ");
+        while(true){
+            int number = Integer.parseInt(scanner.nextLine());
 
-        artosAccount.withdraw(20);
-        System.out.println("The balance of Arto's account is now: " + artosAccount.balance());
-        artosSwissAccount.deposit(200);
-        System.out.println("The balance of Arto's other account is now: " + artosSwissAccount.balance());
-
-        System.out.println("End state");
-        System.out.println(artosAccount);
-        System.out.println(artosSwissAccount);
+            if(number == -1){
+                break;
+            }
+            allNumbers.addNumber(number);
+        
+            if(number % 2 == 0){
+                evenNumbers.addNumber(number);
+            }else{
+                oddNumbers.addNumber(number);
+            }
+        }
+        System.out.println("Sum: " + allNumbers.sum());
+        System.out.println("Sum of even numbers: " + evenNumbers.sum());
+        System.out.println("Sum of odd numbers: "+ oddNumbers.sum());
     }
 }
 
