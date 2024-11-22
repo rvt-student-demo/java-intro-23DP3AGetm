@@ -1,35 +1,41 @@
 package lv.rvt;
 import java.util.Scanner;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 public class App 
 {
     public static void main(String[] args) {
+        
         Scanner scanner = new Scanner(System.in);
-        Statistics allNumbers = new Statistics();
-        Statistics evenNumbers = new Statistics();
-        Statistics oddNumbers = new Statistics();
+        ArrayList<books> books= new ArrayList<>();
+        
+        while (true) {
+            System.out.println("Title: ");
+            String title = scanner.nextLine();
 
-        System.out.println("Enter numbers: ");
-        while(true){
-            int number = Integer.parseInt(scanner.nextLine());
-
-            if(number == -1){
+            if (title.isEmpty()) {
                 break;
             }
-            allNumbers.addNumber(number);
-        
-            if(number % 2 == 0){
-                evenNumbers.addNumber(number);
-            }else{
-                oddNumbers.addNumber(number);
+
+            System.out.println("Pages: ");
+            int pages = Integer.valueOf(scanner.nextLine());
+
+            System.out.println("Publication year: ");
+            int year = Integer.valueOf(scanner.nextLine());
+
+            books.add(new books(title, pages, pages));
+        }
+
+        System.out.println("What information will be printed? ");
+        String information = scanner.nextLine();
+
+        for (books books2 : books){
+            if (information.equals("everything")){
+                System.out.println(books2);
+            }else if (information.equals("name")){
+                System.out.println(books2.getTitle());
             }
         }
-        System.out.println("Sum: " + allNumbers.sum());
-        System.out.println("Sum of even numbers: " + evenNumbers.sum());
-        System.out.println("Sum of odd numbers: "+ oddNumbers.sum());
     }
 }
-
-
-
