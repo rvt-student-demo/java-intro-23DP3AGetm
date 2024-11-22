@@ -6,36 +6,12 @@ import java.util.Random;
 public class App 
 {
     public static void main(String[] args) {
+        Product tapeMeasure = new Product("Tape measure");
+        Product plaster = new Product("Plaster", "home improvement section");
+        Product tyre = new Product("Tyre", 5);
         
-        Scanner scanner = new Scanner(System.in);
-        ArrayList<books> books= new ArrayList<>();
-        
-        while (true) {
-            System.out.println("Title: ");
-            String title = scanner.nextLine();
-
-            if (title.isEmpty()) {
-                break;
-            }
-
-            System.out.println("Pages: ");
-            int pages = Integer.valueOf(scanner.nextLine());
-
-            System.out.println("Publication year: ");
-            int year = Integer.valueOf(scanner.nextLine());
-
-            books.add(new books(title, pages, pages));
-        }
-
-        System.out.println("What information will be printed? ");
-        String information = scanner.nextLine();
-
-        for (books books2 : books){
-            if (information.equals("everything")){
-                System.out.println(books2);
-            }else if (information.equals("name")){
-                System.out.println(books2.getTitle());
-            }
-        }
+        System.out.println(tapeMeasure);
+        System.out.println(plaster);
+        System.out.println(tyre);
     }
 }
