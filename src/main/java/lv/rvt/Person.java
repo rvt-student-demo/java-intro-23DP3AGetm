@@ -1,32 +1,60 @@
 package lv.rvt;
 
 public class Person {
-    private String initialName;
-    private int age;
-    private int weight;
-    private int height;
+   private String name;
+   private int age;
+   private int height;
+   private int weight;
 
-    public Person(String initialName){
-        this.age = 0;
-        this.weight = 0;
-        this.height = 0;
-        this.initialName = initialName;
-    }
+   public Person(String name){
+    this.name = name;
+    this.age = 0;
+    this.weight = 0;
+    this.height = 0;
+   }
 
-    public void setHeight(int newHeight) {
-        this.height = newHeight;
-    }
+   public void printPerson(){
+    System.out.println(this.name + "is" + this.age + "years old");
+   }
 
-    public void setWeight(int newWeight) {
-        this.height = newWeight;
-    }
+   public void growOlder(){
+    this.age++;
+   }
 
-    public String getName(){
-       return initialName;
-    }
+   public boolean isAdult(){
+        if( this.age < 18){
+            return false;
+        }
+        return true;
+   }
 
-    public double bodyMassIndex() {
-        double heightPerHundred = this.height / 100.0;
-        return this.weight / (heightPerHundred * heightPerHundred);
-    }
+   public double bodyMassIndex(){
+    double heightInMeters = this.height / 100.0;
+
+    return this.weight / (heightInMeters * heightInMeters);
+   }
+
+   public String toString(){
+    return this.name + "is" + this.age + "years old, their BMI is" + this.bodyMassIndex();
+   }
+
+   public int getHeight(){
+    return this.height;
+   }
+
+   public int getWeight(){
+    return this.weight;
+   }
+
+   public void setWeight(int weight){
+    this.weight = weight;
+   }
+
+   public String getName(){
+    return this.name;
+   }
+
+
+
+
 }
